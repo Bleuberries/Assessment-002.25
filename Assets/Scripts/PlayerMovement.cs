@@ -19,4 +19,14 @@ public class PlayerMovement : MonoBehaviour
         Vector3 move = new Vector3(moveX, 0, moveZ) * moveSpeed;
         rb.MovePosition(rb.position + move * Time.fixedDeltaTime);
     }
+
+    void OnTriggerEnter(Collider other)
+{
+    if (other.CompareTag("Shard"))
+    {
+        Destroy(other.gameObject);
+        Debug.Log("Shard collected!");
+    }
+}
+
 }
